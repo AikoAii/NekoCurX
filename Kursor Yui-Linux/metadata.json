@@ -1,0 +1,28 @@
+{
+  "cursor_count": 15,
+  "cursors": [
+    "bd_double_arrow",
+    "crossed_circle",
+    "crosshair",
+    "fd_double_arrow",
+    "fleur",
+    "hand2",
+    "left_ptr",
+    "left_ptr_watch",
+    "pencil",
+    "question_arrow",
+    "sb_h_double_arrow",
+    "sb_v_double_arrow",
+    "up_arrow",
+    "watch",
+    "xterm"
+  ],
+  "extra_count": 2,
+  "extras": [
+    "person",
+    "pin"
+  ],
+  "generator": "NekoCurX",
+  "symlink_count": 78,
+  "theme_name": "Kursor Yui"
+}
