@@ -29,6 +29,10 @@ struct CursorAnimation {
     bool is_animated() const {
         return !sizes.empty() && sizes.front().is_animated();
     }
+
+    // Normalizes the cursor sizes. If linux_friendly is true, it synthesizes
+    // standard XCursor sizes (32, 48, 64) if they are missing, by downscaling.
+    void normalize(bool linux_friendly);
 };
 
 struct CursorTheme {

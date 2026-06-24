@@ -1,4 +1,5 @@
 add_library(nkx_lib STATIC
+    core/types.cpp
     theme/scanner.cpp
     theme/detector.cpp
     theme/builder.cpp

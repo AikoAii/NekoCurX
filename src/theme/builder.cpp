@@ -135,6 +135,7 @@ auto build_theme(const BuildOptions& opts) -> Result<BuildResult> {
         }
 
         auto xcursor_path = cursors_dir / linux_name;
+        anim->normalize(opts.linux_friendly);
         auto write_result = write_xcursor(xcursor_path, *anim);
         if (!write_result) {
             std::cout << " ✗ (" << write_result.error().message << ")\n";
@@ -163,6 +164,7 @@ auto build_theme(const BuildOptions& opts) -> Result<BuildResult> {
             }
 
             auto xcursor_path = extras_dir / extra_name;
+            anim->normalize(opts.linux_friendly);
             auto write_result = write_xcursor(xcursor_path, *anim);
             if (!write_result) {
                 std::cout << " ✗ (" << write_result.error().message << ")\n";

@@ -168,6 +168,7 @@ void App::setup_convert() {
     auto output_dir = std::make_shared<std::string>();
     auto comment = std::make_shared<std::string>();
     auto author = std::make_shared<std::string>();
+    auto linux_friendly = std::make_shared<bool>(false);
 
     convert_cmd->add_option("dir", *theme_dir, "Windows cursor theme directory")
         ->required()->check(CLI::ExistingDirectory);
@@ -175,8 +176,9 @@ void App::setup_convert() {
     convert_cmd->add_option("--output,-o", *output_dir, "Override output directory");
     convert_cmd->add_option("--comment,-c", *comment, "Override theme comment");
     convert_cmd->add_option("--author,-a", *author, "Override theme author");
+    convert_cmd->add_flag("--linux-friendly", *linux_friendly, "Synthesize missing standard sizes (32,48,64) by downscaling");
 
-    convert_cmd->callback([theme_dir, theme_name, output_dir, comment, author]() {
+    convert_cmd->callback([theme_dir, theme_name, output_dir, comment, author, linux_friendly]() {
         auto assets = find_assets_dir();
 
         BuildOptions opts;
@@ -184,6 +186,7 @@ void App::setup_convert() {
         opts.theme_name = *theme_name;
         opts.comment = *comment;
         opts.author = *author;
+        opts.linux_friendly = *linux_friendly;
         if (!output_dir->empty()) opts.output_dir = *output_dir;
         opts.compat_aliases_json = read_file_content(assets / "compat_aliases.json");
 
@@ -216,14 +219,16 @@ void App::setup_install() {
     auto theme_name = std::make_shared<std::string>();
     auto comment = std::make_shared<std::string>();
     auto author = std::make_shared<std::string>();
+    auto linux_friendly = std::make_shared<bool>(false);
 
     install_cmd->add_option("dir", *theme_dir, "Windows cursor theme directory")
         ->required()->check(CLI::ExistingDirectory);
     install_cmd->add_option("--theme,-t", *theme_name, "Override theme name");
     install_cmd->add_option("--comment,-c", *comment, "Override theme comment");
     install_cmd->add_option("--author,-a", *author, "Override theme author");
+    install_cmd->add_flag("--linux-friendly", *linux_friendly, "Synthesize missing standard sizes (32,48,64) by downscaling");
 
-    install_cmd->callback([theme_dir, theme_name, comment, author]() {
+    install_cmd->callback([theme_dir, theme_name, comment, author, linux_friendly]() {
         auto assets = find_assets_dir();
 
         // 1. Convert
@@ -232,6 +237,7 @@ void App::setup_install() {
         build_opts.theme_name = *theme_name;
         build_opts.comment = *comment;
         build_opts.author = *author;
+        build_opts.linux_friendly = *linux_friendly;
         build_opts.compat_aliases_json = read_file_content(assets / "compat_aliases.json");
 
         if (build_opts.compat_aliases_json.empty()) {

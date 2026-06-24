@@ -14,6 +14,7 @@ struct BuildOptions {
     std::string comment;
     std::string author;
     std::string compat_aliases_json;   // content of compat_aliases.json
+    bool linux_friendly = false;       // automatically synthesize small sizes
 };
 
 struct BuildResult {
