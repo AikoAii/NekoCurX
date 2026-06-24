@@ -1,6 +1,7 @@
 #include "nkx/xcursor/writer.hpp"
 #include <X11/Xcursor/Xcursor.h>
 #include <cstdio>
+#include <iostream>
 
 namespace nkx {
 
@@ -9,8 +10,16 @@ auto write_xcursor(const std::filesystem::path& output_path,
 
     // Count total images across all sizes and frames
     int total_images = 0;
+    
+    std::cout << "[DEBUG] CursorAnimation sizes = " << animation.sizes.size() << '\n';
+
     for (const auto& cs : animation.sizes) {
         total_images += static_cast<int>(cs.frames.size());
+        for (const auto& frame : cs.frames) {
+            std::cout << "[DEBUG] nominal=" << cs.nominal_size 
+                      << " width=" << frame.width 
+                      << " height=" << frame.height << '\n';
+        }
     }
 
     if (total_images == 0) {

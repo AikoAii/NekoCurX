@@ -135,21 +135,27 @@ void App::setup_inspect() {
         std::string type_str = (ext == ".ani") ? "Animated Cursor (ANI)" : "Static Cursor (CUR)";
 
         std::cout << "File:     " << path.filename().string() << "\n";
-        std::cout << "Type:     " << type_str << "\n";
+        std::cout << "Type:     " << type_str << "\n\n";
 
+        std::cout << "Available Sizes:\n";
         for (const auto& cs : anim->sizes) {
-            std::cout << "Size:     " << cs.nominal_size << "x" << cs.nominal_size << "\n";
-            std::cout << "Frames:   " << cs.frames.size() << "\n";
+            std::cout << "  " << cs.nominal_size << "x" << cs.nominal_size << "\n";
+        }
 
-            if (!cs.frames.empty()) {
-                std::cout << "Hotspot:  (" << cs.frames[0].hotspot_x
-                          << ", " << cs.frames[0].hotspot_y << ")\n";
-
-                if (cs.is_animated()) {
-                    uint32_t total_ms = 0;
-                    for (const auto& f : cs.frames) total_ms += f.delay_ms;
-                    std::cout << "Duration: " << total_ms << "ms\n";
+        std::cout << "\nTotal Sizes: " << anim->sizes.size() << "\n";
+        
+        if (!anim->sizes.empty()) {
+            std::cout << "Frames: " << anim->sizes[0].frames.size() << "\n\n";
+            for (size_t i = 0; i < anim->sizes[0].frames.size(); ++i) {
+                std::cout << "Frame " << i << ":\n";
+                for (const auto& cs : anim->sizes) {
+                    if (i < cs.frames.size()) {
+                        const auto& f = cs.frames[i];
+                        std::cout << "  Size: " << cs.nominal_size << "x" << cs.nominal_size 
+                                  << "  Hotspot: (" << f.hotspot_x << "," << f.hotspot_y << ")\n";
+                    }
                 }
+                std::cout << "\n";
             }
         }
     });
