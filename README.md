@@ -65,7 +65,8 @@ NekoCurX is a command-line utility designed to simplify cursor theme migration b
 Download the latest release and extract it:
 
 ```bash
-tar -xf NekoCurX-v0.1.0-linux-x86_64.tar.gz
+tar -xf NekoCurX-v0.1.1-linux-x86_64.tar.gz
+cd NekoCurX-v0.1.1
 ```
 
 Run:
