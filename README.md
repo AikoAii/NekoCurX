@@ -5,7 +5,7 @@ Convert Windows cursor themes (`.ani` / `.cur`) into Linux XCursor themes.
 NekoCurX is a command-line utility designed to simplify cursor theme migration between Windows and Linux. It automatically detects cursor roles, converts supported formats, generates Linux-compatible themes, and preserves compatibility aliases used across modern desktop environments.
 
 <p align="center">
-  <img src=".meta/assets/logo.png" width="50%" alt="NekoCurX">
+  <img src=".meta/assets/logo.png" width="70%" alt="NekoCurX">
 </p>
 
 <p align="center">
