@@ -9,6 +9,18 @@ NekoCurX is a command-line utility designed to simplify cursor theme migration b
 </p>
 
 <p align="center">
+  <a href="https://github.com/AikoAii/NekoCurX/stargazers">
+    <img src="https://img.shields.io/github/stars/AikoAii/NekoCurX?style=for-the-badge&logo=github" alt="Stars" />
+  </a>
+
+  <a href="https://github.com/AikoAii/NekoCurX/releases">
+    <img src="https://img.shields.io/github/v/release/AikoAii/NekoCurX?style=for-the-badge&logo=github" alt="Release" />
+  </a>
+
+  <a href="https://github.com/AikoAii/NekoCurX/commits">
+    <img src="https://img.shields.io/github/last-commit/AikoAii/NekoCurX?style=for-the-badge&logo=git&label=Last%20Commit" alt="Last Commit" />
+  </a>
+
   <a href="./LICENSE">
     <img src="https://img.shields.io/github/license/AikoAii/NekoCurX?style=for-the-badge" alt="License" />
   </a>
