@@ -24,6 +24,10 @@ NekoCurX is a command-line utility designed to simplify cursor theme migration b
   <a href="./LICENSE">
     <img src="https://img.shields.io/github/license/AikoAii/NekoCurX?style=for-the-badge" alt="License" />
   </a>
+
+  <a href="https://github.com/AikoAii/NekoCurX/issues">
+  <img src="https://img.shields.io/github/issues/AikoAii/NekoCurX?style=for-the-badge" alt="Issues" />
+</a>
 </p>
 
 <p align="center">
@@ -39,13 +43,18 @@ NekoCurX is a command-line utility designed to simplify cursor theme migration b
 
 * ANI (`.ani`) cursor conversion
 * CUR (`.cur`) cursor conversion
-* Automatic cursor mapping
-* `install.inf` support
-* Linux XCursor generation
+* Automatic cursor role detection
+* `install.inf` mapping support
+* Linux XCursor theme generation
 * Compatibility alias generation
 * Theme metadata generation
 * One-command installation
 * Batch theme conversion
+* High-DPI Windows cursor support
+* Linux-friendly cursor normalization (`--linux-friendly`)
+* Automatic multi-size cursor generation (32, 48, 64, 128)
+* Hotspot scaling and preservation
+
 
 ---
 
@@ -118,6 +127,19 @@ Install directly:
 ```bash
 nkx install ThemeFolder/
 ```
+
+Convert a High-DPI Windows theme:
+
+```bash
+nkx convert ThemeFolder/ --linux-friendly
+```
+
+Install a High-DPI theme directly:
+
+```bash
+nkx install ThemeFolder/ --linux-friendly
+```
+
 
 ---
 
